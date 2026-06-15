@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #fe7102;
+    --color-primary-dark: #e86502;
+    --color-primary-rgb: 254, 113, 2;
+    --color-sidebar: #ffffff;
+    --color-app-bg: #fff5f0;
+    --color-surface: #FFFFFF;
+    --color-border: #E9E8E6;
+    --color-border-strong: #ACADAD;
+    --color-light-grey: #e0e0e0;
+    --color-text-dark: #212121;
+    /** Figma label / secondary emphasis brown */
+    --color-taupe: #564334;
+    --color-taupe-muted: #6b5d4f;
+    --color-text-muted: #5C5958;
+    --color-text-disabled: #ACADAD;
+    --color-success: #0D9488;
+    --color-info: #2563EB;
+    --color-danger: #BA1A1A;
+    --color-warning: #FF8C00;
+    --gradient-premium: linear-gradient(172deg, #904D00 0%, #FF8C00 100%);
+    --font-size-body-md: 16px;
+    --line-height-body-md: 1.5;
+    --spacing-page-top: 32px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-app font-sans text-dark antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200;
+  }
+
+  /* Light sidebar rail — Figma admin (white panel + orange accent edge, peach canvas) */
+  .sidebar-nav-item.active {
+    @apply bg-primary/[0.08] font-semibold text-primary shadow-none ring-0;
+  }
+
+  .sidebar-nav-item:not(.active) {
+    @apply text-[#4F4F4F] hover:bg-neutral-100 hover:text-dark;
+  }
+
+  .sidebar-nav-item.active svg {
+    @apply text-primary;
+  }
+
+  .sidebar-nav-item:not(.active) svg {
+    @apply text-muted;
+  }
+
+  .sidebar-nav-item--logout:not(.active) {
+    @apply text-muted hover:bg-red-50 hover:text-red-700;
+  }
+
+  /* Fallback when a page does not use PageHeader */
+  .page-header {
+    @apply mb-6;
+  }
+
+  .page-title {
+    @apply text-[30px] font-semibold font-sans text-dark leading-tight;
+  }
+
+  .page-subtitle {
+    @apply text-sm font-normal text-muted mt-1.5;
+  }
+
+  .admin-label-uppercase {
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-muted;
+  }
+
+}
+
+@layer utilities {
+  .text-body-md {
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-body-md);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,250 @@
+/* Popper must clear sticky headers / overflow ancestors and modals (z-50) */
+.eggfleet-month-popper.react-datepicker-popper,
+.eggfleet-datepicker-popper.react-datepicker-popper {
+  z-index: 400 !important;
+}
+
+.eggfleet-datepicker-field .react-datepicker-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.eggfleet-datepicker-popper.react-datepicker-popper {
+  margin-top: 0 !important;
+}
+
+/* Prevent flex layout shift when van detail date picker opens */
+.react-datepicker-wrapper:has(.eggfleet-van-date-trigger) {
+  display: block;
+  width: 100%;
+}
+
+/* Vendor information — keep trigger size stable; calendar only in popper */
+.eggfleet-vendor-date-range {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.eggfleet-vendor-date-range .react-datepicker-wrapper {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Some builds briefly mount the calendar in-flow; keep it out of layout */
+.eggfleet-vendor-date-range .react-datepicker-wrapper > .react-datepicker {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.eggfleet-vendor-date-popper.react-datepicker-popper {
+  margin-top: 6px !important;
+}
+
+.eggfleet-range-popper.react-datepicker-popper {
+  width: auto !important;
+}
+
+.eggfleet-range-calendar.react-datepicker {
+  display: flex;
+  border-radius: 12px;
+}
+
+.eggfleet-range-calendar .react-datepicker__month-container {
+  float: none;
+}
+
+.eggfleet-range-calendar .react-datepicker__day--in-selecting-range:not(
+    .react-datepicker__day--selecting-range-start
+  ),
+.eggfleet-range-calendar .react-datepicker__day--in-range:not(
+    .react-datepicker__day--range-start,
+    .react-datepicker__day--range-end
+  ) {
+  background-color: rgba(var(--color-primary-rgb), 0.14) !important;
+  color: #212121 !important;
+  border-radius: 0;
+}
+
+.eggfleet-range-calendar .react-datepicker__day--selecting-range-start,
+.eggfleet-range-calendar .react-datepicker__day--range-start,
+.eggfleet-range-calendar .react-datepicker__day--selecting-range-end,
+.eggfleet-range-calendar .react-datepicker__day--range-end {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+/*
+ * Range mode: react-datepicker adds --keyboard-selected / --selected to the same
+ * day-of-month in every visible month. Only highlight true range classes.
+ */
+.eggfleet-range-calendar .react-datepicker__day--keyboard-selected:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--range-start,
+    .react-datepicker__day--range-end,
+    .react-datepicker__day--selecting-range-start,
+    .react-datepicker__day--selecting-range-end
+  ),
+.eggfleet-range-calendar .react-datepicker__day--selected:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--range-start,
+    .react-datepicker__day--range-end,
+    .react-datepicker__day--selecting-range-start,
+    .react-datepicker__day--selecting-range-end
+  ) {
+  background-color: transparent !important;
+  color: #212121 !important;
+  font-weight: inherit !important;
+  border-radius: 0.3rem;
+}
+
+.eggfleet-range-calendar .react-datepicker__day--today:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--range-start,
+    .react-datepicker__day--range-end
+  ) {
+  background-color: transparent !important;
+  color: #212121 !important;
+  font-weight: inherit !important;
+}
+
+.eggfleet-month-calendar.react-datepicker {
+  border-radius: 14px;
+  min-width: 300px;
+}
+
+/* react-datepicker — primary brand orange, peach header #FFF5F0 */
+.react-datepicker {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  border-radius: 12px;
+  border: 1px solid #e9e8e6;
+  box-shadow: 0 8px 24px rgba(26, 28, 27, 0.12);
+}
+
+.react-datepicker__header {
+  background: #fff5f0;
+  border-bottom: 1px solid #e9e8e6;
+  border-radius: 12px 12px 0 0;
+  padding-top: 12px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  font-weight: 600;
+  color: #212121;
+}
+
+.react-datepicker__day-name {
+  color: #5c5958;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.12) !important;
+  border-radius: 8px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__month-text--selected,
+.react-datepicker__month--selected .react-datepicker__month-text {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+/* Keyboard focus day — subtle highlight only when it is not the selected date */
+.react-datepicker__day--keyboard-selected:not(.react-datepicker__day--selected) {
+  background-color: rgba(var(--color-primary-rgb), 0.12) !important;
+  color: #212121 !important;
+  border-radius: 8px;
+}
+
+/* Today — lighter orange when not the selected date */
+.react-datepicker__day--today:not(.react-datepicker__day--selected) {
+  background-color: rgba(var(--color-primary-rgb), 0.18) !important;
+  color: var(--color-primary) !important;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.react-datepicker__day--today.react-datepicker__day--selected {
+  font-weight: 700;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #5c5958;
+}
+
+.react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle {
+  display: none;
+}
+
+/*
+ * Month-year grid — react-datepicker renders one .month-wrapper per ROW (4 cols × 3 rows
+ * when showFourColumnMonthYearPicker). Do NOT use flex-wrap here; it caused staggered/wrapped months.
+ */
+.eggfleet-month-calendar .react-datepicker__month-container {
+  float: none;
+  width: 100%;
+}
+
+.eggfleet-month-calendar .react-datepicker__monthPicker {
+  padding: 8px 10px 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.eggfleet-month-calendar .react-datepicker__month-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.eggfleet-month-calendar .react-datepicker__month-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.eggfleet-month-calendar .react-datepicker__month-text {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 10px 6px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.eggfleet-month-calendar .react-datepicker__month-text--keyboard-selected {
+  background-color: rgba(var(--color-primary-rgb), 0.15) !important;
+  color: #212121 !important;
+}
