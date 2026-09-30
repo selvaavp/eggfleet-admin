@@ -23,6 +23,7 @@ import EmployeeDetailPage from '@/pages/employees/EmployeeDetailPage';
 import HandoversPage from '@/pages/handovers/HandoversPage';
 import PaymentsPage from '@/pages/payments/PaymentsPage';
 import ExpensesPage from '@/pages/expenses/ExpensesPage';
+import ReportsPage from '@/pages/reports/ReportsPage';
 
 function ProtectedRoute() {
   const hydrated = useAuthHydrated();
@@ -85,6 +86,7 @@ export default function App() {
               <Route path="/handovers" element={<HandoversPage />} />
               <Route path="/payments" element={<PaymentsPage />} />
               <Route path="/expenses" element={<ExpensesPage />} />
+              <Route path="/reports" element={<ReportsPage />} />
             </Route>
           </Route>
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

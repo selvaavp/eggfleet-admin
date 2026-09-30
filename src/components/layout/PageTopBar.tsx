@@ -78,7 +78,7 @@ export function PageTopBar() {
   };
 
   return (
-    <div className="relative z-30 shrink-0 bg-primary shadow-[0px_4px_12px_rgba(254,113,2,0.35)]">
+    <div className="relative z-30 shrink-0 bg-primary shadow-[0px_4px_12px_rgba(254,113,2,0.35)] print:hidden">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-stretch gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-3.5 lg:px-10">
         <div className="relative min-w-0 w-full sm:max-w-3xl sm:flex-1">
           <Search

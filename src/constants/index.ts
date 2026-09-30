@@ -17,6 +17,7 @@ export const APP_ROUTES = {
   HANDOVERS: '/handovers',
   PAYMENTS: '/payments',
   EXPENSES: '/expenses',
+  REPORTS: '/reports',
 } as const;
 
 // ─── Auth layout (login, forgot password, reset password, success) ───────────

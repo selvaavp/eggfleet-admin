@@ -11,6 +11,7 @@ import {
   HandshakeIcon,
   Wallet,
   Receipt,
+  FileSpreadsheet,
   LogOut,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -29,6 +30,7 @@ const navItems = [
   { to: '/assignments', icon: ClipboardList, label: 'Assignments' },
   { to: '/handovers', icon: HandshakeIcon, label: 'Handovers' },
   { to: '/expenses', icon: Receipt, label: 'Expenses' },
+  { to: '/reports', icon: FileSpreadsheet, label: 'Reports' },
 ];
 
 export function Sidebar() {
@@ -42,7 +44,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-[260px] flex-shrink-0 flex-col overflow-hidden border-r-[3px] border-primary bg-white shadow-[4px_0_24px_rgba(254,113,2,0.08)]">
+    <aside className="flex h-screen w-[260px] flex-shrink-0 flex-col overflow-hidden border-r-[3px] border-primary bg-white shadow-[4px_0_24px_rgba(254,113,2,0.08)] print:hidden">
       <div className="flex items-center justify-center border-b border-border px-4 py-3">
         <img
           src="/assets/auth/login/login-hero-illustration-2c7327.png"
